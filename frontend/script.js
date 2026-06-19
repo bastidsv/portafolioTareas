@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/tareas")
+fetch("https://portafoliotareas.onrender.com/tareas")
   .then(response => response.json())
   .then(tareas => {
     const lista = document.getElementById("listaTareas");
