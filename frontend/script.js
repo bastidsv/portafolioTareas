@@ -1,5 +1,5 @@
 function cargarAgenda(dia) {
-  fetch(`https://portafoliotareas.onrender.com/agenda/${dia}`)
+  fetch(`https://portafoliotareas.onrender.com/agenda/${encodeURIComponent(dia)}`)
     .then(response => response.json())
     .then(agenda => {
       const lista = document.getElementById("listaAgenda");
