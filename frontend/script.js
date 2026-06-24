@@ -1,20 +1,21 @@
-fetch("https://portafoliotareas.onrender.com/tareas")
+fetch("https://portafoliotareas.onrender.com/agenda")
   .then(response => response.json())
-  .then(tareas => {
-    const lista = document.getElementById("listaTareas");
+  .then(agenda => {
+    const lista = document.getElementById("listaAgenda");
 
-    tareas.forEach(tarea => {
+    agenda.forEach(persona => {
       const item = document.createElement("li");
-      const enlace = document.createElement("a");
 
-      enlace.textContent = tarea.titulo;
-      enlace.href = tarea.url;
-      enlace.target = "_blank";
+      item.innerHTML = `
+        <strong>${persona.dia}</strong><br>
+        Nombre: ${persona.nombre}<br>
+        Ubicación: ${persona.ubicacion}<br>
+        Contacto: ${persona.contacto}
+      `;
 
-      item.appendChild(enlace);
       lista.appendChild(item);
     });
   })
   .catch(error => {
-    console.error("Error al cargar las tareas:", error);
+    console.error("Error al cargar la agenda:", error);
   });
