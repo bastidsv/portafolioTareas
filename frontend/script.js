@@ -30,5 +30,4 @@ function cargarAgenda(dia) {
     });
 }
 
-// Cargar lunes automáticamente al abrir la página
 cargarAgenda("Lunes");

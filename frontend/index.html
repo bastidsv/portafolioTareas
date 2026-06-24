@@ -15,7 +15,18 @@
     <p><strong>Matrícula:</strong> 22040794</p>
     <p><strong>Grupo:</strong> 204</p>
 
-    <h2>Contactos por día</h2>
+    <h2>Selecciona un día</h2>
+
+    <div class="botones-dias">
+      <button onclick="cargarAgenda('Lunes')">Lunes</button>
+      <button onclick="cargarAgenda('Martes')">Martes</button>
+      <button onclick="cargarAgenda('Miércoles')">Miércoles</button>
+      <button onclick="cargarAgenda('Jueves')">Jueves</button>
+      <button onclick="cargarAgenda('Viernes')">Viernes</button>
+      <button onclick="cargarAgenda('Sábado')">Sábado</button>
+    </div>
+
+    <h2 id="tituloDia">Clientes del día</h2>
     <ul id="listaAgenda"></ul>
   </div>
 
