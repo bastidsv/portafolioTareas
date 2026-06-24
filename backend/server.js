@@ -9,42 +9,60 @@ app.use(cors());
 app.use(express.json());
 
 // Conectar a la base de datos SQLite
-const db = new sqlite3.Database("./tareas.db");
+const db = new sqlite3.Database("./agenda.db");
 
 // Crear la tabla e insertar los datos
 db.serialize(() => {
-
   // Eliminar la tabla si ya existe
-  db.run(`DROP TABLE IF EXISTS tareas`);
+  db.run(`DROP TABLE IF EXISTS agenda`);
 
   // Crear nuevamente la tabla
   db.run(`
-    CREATE TABLE tareas (
+    CREATE TABLE agenda (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      titulo TEXT NOT NULL,
-      url TEXT NOT NULL
+      dia TEXT NOT NULL,
+      nombre TEXT NOT NULL,
+      ubicacion TEXT NOT NULL,
+      contacto TEXT NOT NULL
     )
   `);
 
-  // Insertar las tareas
+  // Insertar datos de ejemplo
   db.run(`
-    INSERT INTO tareas (id, titulo, url)
+    INSERT INTO agenda (dia, nombre, ubicacion, contacto)
     VALUES
-    (1, 'Tarea Practica final', 'https://drive.google.com/file/d/1jSlCqMOFqt-PgshKM-x3CK2P5_2Cah3G/view'),
-    (2, 'Tarea Relacion http y mysql', 'https://docs.google.com/document/d/1WH7EmPtJfFcFcdybj-UyzuzxdodSmEugLZtTyNhMReY/edit?tab=t.0'),
-    (3, 'Tarea Tablas de multiplicar', 'https://docs.google.com/document/d/15Zh3YSZfoAgsNxQ2OKxdmg10TpulpwoV_krOFlXmyQw/edit?usp=drive_web&ouid=106535956746906993977')
+    ('Lunes', 'Juan Pérez', 'Culiacán Centro', '6671234567'),
+    ('Martes', 'María López', 'Tres Ríos', '6677654321'),
+    ('Miércoles', 'Carlos Ramírez', 'Universidad', '6671112233'),
+    ('Jueves', 'Ana Torres', 'Las Quintas', '6674445566'),
+    ('Viernes', 'Pedro Sánchez', 'Barrancos', '6677778899'),
+    ('Sábado', 'Luis Hernández', 'Humaya', '6679990011')
   `);
-
 });
 
 // Ruta principal
 app.get("/", (req, res) => {
-  res.send("API funcionando correctamente. Ve a /tareas para ver las tareas.");
+  res.send("API de agenda funcionando correctamente. Ve a /agenda para ver los datos.");
 });
 
-// Endpoint para obtener las tareas
-app.get("/tareas", (req, res) => {
-  db.all("SELECT * FROM tareas", [], (err, rows) => {
+// Endpoint para obtener toda la agenda
+app.get("/agenda", (req, res) => {
+  db.all("SELECT * FROM agenda", [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({
+        error: "Error al consultar la base de datos"
+      });
+    }
+
+    res.json(rows);
+  });
+});
+
+// Endpoint para obtener agenda por día
+app.get("/agenda/:dia", (req, res) => {
+  const dia = req.params.dia;
+
+  db.all("SELECT * FROM agenda WHERE dia = ?", [dia], (err, rows) => {
     if (err) {
       return res.status(500).json({
         error: "Error al consultar la base de datos"
