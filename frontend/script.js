@@ -18,7 +18,10 @@ function cargarAgenda(dia) {
 
         item.innerHTML = `
           <strong>${persona.nombre}</strong><br>
-          Ubicación: ${persona.ubicacion}<br>
+          Ubicación: 
+          <a href="${persona.ubicacion}" target="_blank">
+            Abrir en Google Maps
+          </a><br>
           Contacto: ${persona.contacto}
         `;
 
