@@ -71,7 +71,7 @@ db.serialize(() => {
     ('Sabado', 'Panchito', 'https://maps.app.goo.gl/VzVcmDfCHDYQkE7PA', 'xx'),
     ('Sabado', 'Hacienda El Amigo', 'https://maps.app.goo.gl/tnb6CK2T9bYUwfeZ7', 'xx'),
     ('Sabado', 'Mama Charlie', 'https://maps.app.goo.gl/vAcZvK5YpV6xv19s6', 'xx'),
-    ('Sabado', 'Maralago', 'https://maps.app.goo.gl/pSTjuvBP9wGeQYvE9', 'xx'),
+    ('Sabado', 'Maralago', 'https://maps.app.goo.gl/pSTjuvBP9wGeQYvE9', 'xx')
     
   `);
 });
