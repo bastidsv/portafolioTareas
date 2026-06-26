@@ -66,10 +66,13 @@ db.serialize(() => {
     ('Viernes', 'Canelos', 'https://maps.app.goo.gl/jaUnb7HdUsbMv2fQ8', 'xx'),
     ('Viernes', 'Ramon beltran', 'https://maps.app.goo.gl/jxnVehiDnR2hT1oh6', 'xx'),
     ('Viernes', 'El gringo', 'https://maps.app.goo.gl/iUR7QqsTShNXdoTu9', 'xx'),
-     ('Viernes', 'La fina', 'https://maps.app.goo.gl/PGHXFVZpW7rUinU76', 'xx'),
+    ('Viernes', 'La fina', 'https://maps.app.goo.gl/PGHXFVZpW7rUinU76', 'xx'),
     ('Viernes', 'Primavera Ley 75', 'https://maps.app.goo.gl/TkasX2UjDo2w61gd7', 'x'),
-
-    ('Sábado', 'Luis Hernández', 'Humaya', '6679990011')
+    ('Sabado', 'Panchito', 'https://maps.app.goo.gl/VzVcmDfCHDYQkE7PA', 'xx'),
+    ('Sabado', 'Hacienda El Amigo', 'https://maps.app.goo.gl/tnb6CK2T9bYUwfeZ7', 'xx'),
+    ('Sabado', 'Mama Charlie', 'https://maps.app.goo.gl/vAcZvK5YpV6xv19s6', 'xx'),
+    ('Sabado', 'Maralago', 'https://maps.app.goo.gl/pSTjuvBP9wGeQYvE9', 'xx'),
+    
   `);
 });
 
